@@ -14,11 +14,11 @@ When a method in Canister needs to execute a cross-container call, it will face 
 - Runtime error: e.g. divide-by-0 error.
 - Fail-stop: e.g. the subnet where the callee is located is inaccessible.
 
-The IC network is free from fail-stop most of the time, but there is still the potential for this type of failures to occur. If the Defi application cannot robustly handle failures and maintain eventual consistency, the consequences could be catastrophic. 
+The IC network is free from fail-stop errors most of the time, but there is still the potential for this type of failure to occur. If the Defi application cannot robustly handle failures and maintain eventual consistency, the consequences could be catastrophic. 
 
 So we need a new framework that requires a concerted effort from both the caller and the callee to provide features that support the execution of distributed transactions. ICTC is based on [Base: An Acid Alternative](https://queue.acm.org/detail.cfm?id=1394128), and seeks eventual consistency of data in cross-canister transactions. Unfortunately, ICTC can only achieve "best-effort delivery" and requires governance compensation or manual compensation mechanisms as a final guarantee to achieve eventual consistency.
 
-ICTC requires that each participant achieves.
+ICTC requires that each participant achieves the following:
 
 - The callee achieves internal task atomicity
 - The callee implements functionality to meet eventual consistency as appropriate, including
